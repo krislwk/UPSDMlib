@@ -1,2 +1,4 @@
 # UPSDMlib
-A python module created for parsing the UPSDM PE dataset.
+A python library created for parsing the Purdue University's UPS Corporate Partnership team's PE database.
+
+
