@@ -3,7 +3,8 @@ from opencage.geocoder import OpenCageGeocode
 
 GEOCODE_API_KEY = "77987660cbc445de9b873604e55f2d3d"
 
-def geocodeColumn(datasetLocation, API_KEY, cityColumnName, HQLocationColumnName): #creates a new excel file with a new column longitude and latitude
+#creates a new excel file containing the inputted dataset but with a new column longitude and latitude
+def geocodeColumn(datasetLocation, API_KEY, cityColumnName, HQLocationColumnName):
     location_arr = []
     df = pd.read_excel(datasetLocation)
     city_list = df[cityColumnName].to_numpy() #Putting cities in a list
@@ -32,4 +33,4 @@ def geocodeColumn(datasetLocation, API_KEY, cityColumnName, HQLocationColumnName
             longlatArr.append(combined)
 
         df['long lat'] = longlatArr #the dataset file should now have a new column containing the PE location's long and lat
-        df.to_excel("output.xlsx")
+        df.to_excel("LongLatoutput.xlsx")
