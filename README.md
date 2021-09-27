@@ -1,7 +1,7 @@
 # UPSDMlib
 A python library created for parsing Purdue University's UPS Corporate Partnership team's PE database.
 
-#Dependencies
+# Dependencies
 1) Pandas module
 2) opencage module
 
