@@ -34,3 +34,17 @@ def geocodeColumn(datasetLocation, API_KEY, cityColumnName, HQLocationColumnName
 
         df['long lat'] = longlatArr #the dataset file should now have a new column containing the PE location's long and lat
         df.to_excel("LongLatoutput.xlsx")
+
+#one hot encodes a column; method assumes that all possible unique values are present in the column
+#creates a new excel file with the inputted dataset but with the column replaced with the one hot encoded version
+def oneHotEncode(datasetLocation, columnName):
+    df = pd.read_excel(datasetLocation)
+    list = df[columnName].to_numpy()
+    uniqueValues = numpy.unique(list)
+    oneHotColumn = []
+    for originalValue in list:
+        for index in range(len(uniqueValues)):
+            if originalValue == uniqueValues[index]:
+                oneHotColumn.append(index + 1)
+    df[columnName] = oneHotColumn
+    df.to_excel("oneHotoutput.xlsx") 
