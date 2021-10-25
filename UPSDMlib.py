@@ -36,7 +36,7 @@ def geocodeColumn(datasetLocation, API_KEY, cityColumnName, HQLocationColumnName
         df.to_excel("LongLatoutput.xlsx")
 
 #uses label encoding to encode a column; method assumes that all possible unique values are present in the column
-#creates a new excel file with the inputted dataset but with the column replaced with the one label encoded version
+#creates a new excel file with the inputted dataset but with the column replaced with the label encoded version
 def labelEncode(datasetLocation, columnName):
     df = pd.read_excel(datasetLocation)
     list = df[columnName].to_numpy()
@@ -45,6 +45,6 @@ def labelEncode(datasetLocation, columnName):
     for originalValue in list:
         for index in range(len(uniqueValues)):
             if originalValue == uniqueValues[index]:
-                oneHotColumn.append(index + 1)
+                labelColumn.append(index + 1)
     df[columnName] = labelColumn
-    df.to_excel("oneHotoutput.xlsx")
+    df.to_excel("labelEncodeOutput.xlsx")
